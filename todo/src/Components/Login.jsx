@@ -9,10 +9,20 @@ function Login() {
         event.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8000/login', {
-                username,
-                password,
+            const response = await axios.post('http://localhost:8000/login', new URLSearchParams({
+                'username': username,
+                'password': password,
+            }), {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
             });
+
+
+            const accessToken = response.data.access_token;
+
+            // Save the access token to local storage
+            localStorage.setItem('access_token', accessToken);
 
             console.log('Login successful:', response.data);
             alert('Login successful!');
