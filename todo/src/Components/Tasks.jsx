@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Tasks() {
@@ -30,6 +31,9 @@ function Tasks() {
           <li key={task._id} className="list-group-item">
             <h4>{task.title}</h4>
             <p className='fs-5'> {task.description}</p>
+            <Link to={`/task/${task._id.$oid}`} className="btn btn-primary">
+              View Task
+            </Link>
           </li>
         ))}
       </ul>

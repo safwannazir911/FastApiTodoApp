@@ -73,6 +73,7 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/tasks" element={<Tasks/>} />
           <Route path="/create-task" element={<TaskForm/>} />
+          <Route path="/task/:id" element={<TaskDetails />} />
         </Routes>
       </div>
     </BrowserRouter>
