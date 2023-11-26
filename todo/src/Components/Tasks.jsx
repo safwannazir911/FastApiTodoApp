@@ -28,7 +28,7 @@ function Tasks() {
       <h2>My Tasks</h2>
       <ul className="list-group">
         {tasks.map((task) => (
-          <li key={task._id} className="list-group-item">
+          <li key={task._id} className="list-group-item ">
             <h4>{task.title}</h4>
             <p className='fs-5'> {task.description}</p>
             <Link to={`/task/${task._id.$oid}`} className="btn btn-primary">

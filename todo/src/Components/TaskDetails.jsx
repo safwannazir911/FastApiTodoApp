@@ -29,7 +29,7 @@ function TaskDetails() {
     <div className="container mt-4">
       <h2>Task Details</h2>
       {task ? (
-        <div>
+        <div className='border rounded p-2'>
           <h3>{task.title}</h3>
           <p className="fs-5">{task.description}</p>
         </div>
