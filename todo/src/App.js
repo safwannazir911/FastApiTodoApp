@@ -29,11 +29,10 @@ function App() {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
-                <Link to="/register" className="nav-link active" aria-current="page">Register</Link>
-                <Link to="/login" className="nav-link" >Login </Link>
                 <Link to="/tasks" className="nav-link" >My Tasks </Link>
                 <Link to="/create-task" className="nav-link" >Create Task</Link>
-                <Link to="/task/:id" className="nav-link" >View Task</Link>
+                <Link to="/register" className="nav-link active" aria-current="page">Register</Link>
+                <Link to="/login" className="nav-link" >Login </Link>
               </div>
             </div>
           </div>
@@ -50,22 +49,17 @@ function App() {
           </div>
           <div className="offcanvas-body">
             <ul className="nav flex-column position-relative">
+              <li className="nav-item" onClick={toggleNav}>
+                <Link to="/tasks" className="nav-link" >My Tasks </Link>
+              </li>
+              <li className="nav-item" onClick={toggleNav}>
+                <Link to="/create-task" className="nav-link" >Create Task</Link>
+              </li>
               <li className="nav-item " onClick={toggleNav}>
                 <Link to="/register" className="nav-link active" >Register</Link>
               </li>
               <li className="nav-item" onClick={toggleNav}>
                 <Link to="/login" className="nav-link" >Login </Link>
-
-              </li>
-              <li className="nav-item" onClick={toggleNav}>
-                <Link to="/tasks" className="nav-link" >My Tasks </Link>
-
-              </li>
-              <li className="nav-item" onClick={toggleNav}>
-                <Link to="/create-task" className="nav-link" >Create Task</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/task/:id" className="nav-link" >View Task</Link>
               </li>
             </ul>
 
@@ -79,7 +73,6 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/tasks" element={<Tasks/>} />
           <Route path="/create-task" element={<TaskForm/>} />
-          <Route path="/task/:id" element={<TaskDetails/>} />
         </Routes>
       </div>
     </BrowserRouter>
