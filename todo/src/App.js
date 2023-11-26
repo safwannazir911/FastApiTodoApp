@@ -18,7 +18,6 @@ function App() {
     <BrowserRouter>
       <div>
         <nav className="navbar navbar-expand-lg nav ">
-       
 
           <div className="container-fluid">
             <button
@@ -51,9 +50,8 @@ function App() {
           </div>
           <div className="offcanvas-body">
             <ul className="nav flex-column position-relative">
-              <li className="nav-item" onClick={toggleNav}>
-                <Link to="/register" className="nav-link active" aria-current="page">Register</Link>
-
+              <li className="nav-item " onClick={toggleNav}>
+                <Link to="/register" className="nav-link active" >Register</Link>
               </li>
               <li className="nav-item" onClick={toggleNav}>
                 <Link to="/login" className="nav-link" >Login </Link>
@@ -76,11 +74,12 @@ function App() {
         </div>
 
         <Routes>
-        <Route path="/register" element={RegisterationForm} />
-          <Route path="/login" element={Login} />
-          <Route path="/tasks" element={Tasks} />
-          <Route path="/create-task" element={TaskForm} />
-          <Route path="/task/:id" element={TaskDetails} />
+          <Route path="/" element={<RegisterationForm />} />
+          <Route path="/register" element={<RegisterationForm/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/tasks" element={<Tasks/>} />
+          <Route path="/create-task" element={<TaskForm/>} />
+          <Route path="/task/:id" element={<TaskDetails/>} />
         </Routes>
       </div>
     </BrowserRouter>
