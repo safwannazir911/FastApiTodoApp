@@ -27,16 +27,11 @@ This is a simple CRUD (Create, Read, Update, Delete) application built with Fast
 - cd todo
 - npm i
 
-3. Configure environment variables:Create a `.env` file in the project root and set the following variables:
-
-- MONGODB_URL=mongodb://localhost:27017
-- SECRET_KEY=your_secret_key
-
-4. Run the applications backend server:
+3. Run the applications backend server:
 
 - uvicorn main:app --reload
 
-5. Run the applications frontend server:
+4. Run the applications frontend server:
 
 - cd todo
 - npm start

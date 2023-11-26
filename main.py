@@ -25,12 +25,10 @@ app.add_middleware(
     allow_headers=["*"], 
 )
 
-#DOT ENV Configuration
-env_path = Path('.') / '.env'
-load_dotenv(dotenv_path=env_path)
+
 
 # MongoDB Configuration
-MONGODB_URL = os.environ.get("MONGODB_URL")
+MONGODB_URL = "mongodb+srv://safwannazir911:Lexuslfa12345@cluster0.roxmicn.mongodb.net/FastApiDB?retryWrites=true&w=majority"
 client = AsyncIOMotorClient(MONGODB_URL)
 database = client["fastApiDB"]
 
@@ -52,7 +50,7 @@ class Task(BaseModel):
 #Token Configuration
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = "secret"
 
 #Getting the currenty logged in user
 async def get_current_user(token: str = Depends(oauth2_scheme), db: AsyncIOMotorDatabase = Depends(get_db)):
