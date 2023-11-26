@@ -50,7 +50,7 @@ class Task(BaseModel):
     owner_id: Optional[Any]=None
 
 #Token Configuration
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
@@ -94,7 +94,7 @@ async def register(user: User, db: AsyncIOMotorDatabase = Depends(get_db)):
     return {"user_id": str(result.inserted_id)}
 
 # Token endpoint for user login
-@app.post("/token")
+@app.post("/login")
 async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: AsyncIOMotorDatabase = Depends(get_db)):
     user = await db.users.find_one({"username": form_data.username, "password": form_data.password})
     if user is None:
@@ -162,6 +162,7 @@ async def delete_task(task_id: str, current_user: User = Depends(get_current_use
     else:
         raise HTTPException(status_code=404, detail="Task not found")
 
+#Running the App
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)
