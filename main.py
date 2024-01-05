@@ -25,10 +25,10 @@ app.add_middleware(
     allow_headers=["*"], 
 )
 
+MONGODB_URL = os.environ.get("MONGODB_URL")
 
 
 # MongoDB Configuration
-MONGODB_URL = "mongodb+srv://safwannazir911:Lexuslfa12345@cluster0.roxmicn.mongodb.net/FastApiDB?retryWrites=true&w=majority"
 client = AsyncIOMotorClient(MONGODB_URL)
 database = client["fastApiDB"]
 
